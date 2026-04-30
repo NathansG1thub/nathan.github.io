@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport meta tag is essential for responsive design on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Holidae</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Raleway for body text. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- External stylesheet. -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Favicon: the small icon shown in the browser tab. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+</head>
+
+<body>
+  <!-- NAVIGATION BAR -->
+  <!-- Fixed top bar. On desktop: inline links. On mobile: hamburger toggle. -->
+  <nav id="navbar">
+    <div class="nav-brand"> Holidae</div>
+
+    <!-- Hamburger button — visible only on mobile via CSS. -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <!-- Three spans form the three bars of the hamburger icon. -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Nav link list. On mobile this is hidden until hamburger is clicked. -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home"         class="nav-link">Home</a></li>
+      <li><a href="#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="#why-us"       class="nav-link">Why Us</a></li>
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <!-- deals links to a separate page. -->
+      <li><a href="../Deals/deals.html" class="nav-link nav-cta">View Deals</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO/MAIN SECTION -->
+  <!-- Full-viewport intro with headline, subtext, and offer toggle. -->
+  <section id="home">
+
+    <!-- Decorative background orbs for depth — purely visual, no content. -->
+    <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+
+    <!-- Eyebrow label above the main heading. -->
+    <p class="hero-eyebrow"> Award-Winning Travel Since 1999 </p>
+
+    <!-- Main hero heading. The <span> applies the gold accent colour. -->
+    <h1 class="hero-heading">
+      Your Perfect <span>Holiday</span><br/>Starts Here
+    </h1>
+
+    <!-- Short introductory paragraph. -->
+    <p class="hero-sub">
+      From sun-soaked beaches to snow-capped mountains,  Holidae
+      connects you with the world's most breathtaking destinations.
+      Let us plan the trip you have always dreamed of.
+    </p>
+
+    <!-- Button row: two CTAs side by side (stack on mobile via CSS). -->
+    <div class="hero-btns">
+      <!-- Primary CTA: navigates to the deals page. -->
+      <a href="../Deals/deals.html" class="btn btn--primary">Explore deals</a>
+
+      <!-- Secondary CTA: toggles the special offer message via JS. -->
+      <button class="btn btn--outline" id="offer-btn" onclick="toggleOffer()">
+        See Our Special Offer
+      </button>
+    </div>
+
+    <!-- Hidden offer message, revealed by toggleOffer() in script.js. -->
+    <div id="offer-msg" aria-live="polite">
+      Book any 7-night deal before <strong>31 May</strong> and receive a
+      complimentary airport transfer, daily breakfast, and a guided city tour —
+      all included at no extra cost.
+    </div>
+
+  </section>
+
+
+  <!-- DESTINATIONS SECTION -->
+  <!-- A responsive grid of featured destination cards. -->
+  <section id="destinations">
+    <p class="section-label">Where Will You Go?</p>
+    <h2 class="section-title">Featured Destinations</h2>
+
+    <!-- CSS Grid container — columns adjust from 1 to 3 depending on screen width. -->
+    <div class="cards-grid">
+
+      <!-- Destination card 1: Santorini -->
+      <article class="dest-card">
+        <div class="dest-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80"
+            alt="White-washed buildings and blue domes overlooking the sea in Santorini, Greece"
+            loading="lazy"
+          />
+          <!-- Badge overlaid on the image. -->
+          <span class="dest-card__badge">Popular</span>
+        </div>
+        <div class="dest-card__body">
+          <h3 class="dest-card__name">Santorini, Greece</h3>
+          <p class="dest-card__desc">
+            Cliffside villages, volcanic beaches, and legendary Aegean sunsets.
+          </p>
+          <div class="dest-card__footer">
+            <span class="dest-card__price">From $1,299 <em>/ person</em></span>
+            <a href="../Santorini/santorini.html" class="btn btn--sm">View deal</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Destination card 2: Maldives -->
+      <article class="dest-card">
+        <div class="dest-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80"
+            alt="Overwater bungalows on crystal-clear turquoise water in the Maldives"
+            loading="lazy"
+          />
+          <span class="dest-card__badge dest-card__badge--new">New</span>
+        </div>
+        <div class="dest-card__body">
+          <h3 class="dest-card__name">Maldives</h3>
+          <p class="dest-card__desc">
+            Private overwater villas, coral reefs teeming with marine life.
+          </p>
+          <div class="dest-card__footer">
+            <span class="dest-card__price">From $2,199 <em>/ person</em></span>
+            <a href="../Deals/deals.html" class="btn btn--sm">View deal</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Destination card 3: Kyoto -->
+      <article class="dest-card">
+        <div class="dest-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80"
+            alt="A lantern-lit path through bamboo forest in Kyoto, Japan"
+            loading="lazy"
+          />
+        </div>
+        <div class="dest-card__body">
+          <h3 class="dest-card__name">Kyoto, Japan</h3>
+          <p class="dest-card__desc">
+            Ancient temples, cherry blossom trails, and timeless Zen gardens.
+          </p>
+          <div class="dest-card__footer">
+            <span class="dest-card__price">From $1,799 <em>/ person</em></span>
+            <a href="../Kyoto/kyoto.html" class="btn btn--sm">View deal</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.cards-grid -->
+  </section>
+
+
+  <!-- WHY US SECTION -->
+   <!-- Three feature highlights in a responsive row. -->
+  <section id="why-us">
+    <p class="section-label">Why Holidae?</p>
+    <h2 class="section-title">Travel Better With Us</h2>
+
+    <!-- Feature items lay out in a row on desktop, column on mobile. -->
+    <div class="features-grid">
+
+      <div class="feature">
+        <h3 class="feature__title">20+ Years Experience</h3>
+        <p class="feature__desc">
+          Over half a million travellers have trusted us to craft their
+          perfect getaway since 2004.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3 class="feature__title">Award-Winning Service</h3>
+        <p class="feature__desc">
+          Recognised five times by the World Travel Awards for outstanding
+          customer experience.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3 class="feature__title">24 / 7 Support</h3>
+        <p class="feature__desc">
+          Our travel specialists are available around the clock — before,
+          during, and after your trip.
+        </p>
+      </div>
+
+    </div><!-- /.features-grid -->
+  </section>
+
+
+  <!-- VIDEO SECTION -->
+   <!-- Embedded YouTube video of a destination.-->
+  <section id="video">
+    <p class="section-label">See It For Yourself</p>
+    <h2 class="section-title">Experience Santorini</h2>
+
+    <!--
+      Responsive video wrapper technique:
+      A 16:9 padding-top trick keeps the iframe at the correct aspect ratio
+      at any screen width. See .video-wrap in styles.css for the CSS.
+    -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/2zjpU97z3YY"
+        title="Santorini Greece travel video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+
+  <!-- ABOUT SECTION -->
+   <!-- Short company description in a frosted card panel. -->
+  <section id="about">
+    <div class="about-card">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">Who We Are</h2>
+      <p>
+        With over 20 years of experience,  Holidae has helped more than
+        half a million travellers find their ideal getaway. Our dedicated team
+        of travel specialists curates every itinerary with care, ensuring that
+        every trip is seamless, memorable, and worth every moment.
+      </p>
+      <!-- Internal link to a future About page could go here. -->
+      <a href="../Deals/deals.html" class="btn btn--outline" style="margin-top:1.8rem; display:inline-block;">
+        Browse All deals
+      </a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+   <!-- Copyright, quick links, and a simple tagline. -->
+  <footer>
+    <div class="footer-inner">
+
+      <!-- Footer brand column. -->
+      <div class="footer-col">
+        <p class="footer-brand"> Holidae</p>
+        <p class="footer-tagline">Your world. Your way.</p>
+      </div>
+
+      <!-- Quick links column. -->
+      <nav class="footer-col" aria-label="Footer navigation">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="../Deals/deals.html">Deals</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact column. -->
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>holidae@holidae.com</p>
+        <p>+971 12 345 6789</p>
+      </div>
+
+    </div><!-- /.footer-inner -->
+
+    <!-- Bottom copyright bar. -->
+    <p class="footer-copy">
+      &copy; 2026  Holidae &mdash; All Rights Reserved
+    </p>
+  </footer>
+
+
+  <!-- External JS file, placed at end of body so HTML loads first. -->
+  <script src="script.js"></script>
+
+</body>
+</html>
