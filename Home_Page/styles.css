@@ -1,0 +1,776 @@
+
+/* 1. CSS CUSTOM PROPERTIES */
+/* Centralised variables make it easy to change the whole colour palette or
+typography from one place, and ensure consistency across every element. */
+
+:root {
+  /* Colours */
+  --bg-dark:       #ffffff;
+  --bg-mid:        #f0f9ff;
+  --accent:        #f97316;
+  --accent-glow:   rgba(249, 115, 22, 0.25);
+  --accent-dim:    rgba(249, 115, 22, 0.10);
+  --text-light:    #0c2d3f;
+  --text-dim:      #4a7c8a;
+  --card-bg:       rgba(255, 255, 255, 0.88);
+  --border:        rgba(249, 115, 22, 0.18);
+
+  /* Typography */
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Raleway', 'Trebuchet MS', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+
+  /* Layout */
+  --max-width: 1100px;
+  --nav-height: 68px;
+
+  /* Transitions */
+  --transition: 0.3s ease;
+}
+
+
+/* 2. RESET & BASE */
+/* Normalise browser defaults and set sensible global rules. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Smooth scrolling when anchor links are clicked. */
+  scroll-behavior: smooth;
+  /* Prevent layout shift when a scrollbar appears. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  background: linear-gradient(160deg, #e0f4ff 0%, #f0faf5 55%, #fff8f0 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  /* Images never overflow their container. */
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Thin, themed scrollbar for Webkit browsers. */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #f0f9ff; }
+::-webkit-scrollbar-thumb { background: rgba(249,115,22,0.3); border-radius: 3px; }
+
+
+/* 3. REUSABLE COMPONENTS */
+/* Buttons */
+/* .btn is the base class. Modifier classes (--primary, --outline, --sm)
+are layered on top. This BEM-style pattern keeps styles composable. */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  transition: color var(--transition),
+              background var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle lift on any button hover. */
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Filled gold button. */
+.btn--primary {
+  background: var(--accent);
+  color: var(--bg-dark);
+}
+.btn--primary:hover {
+  background: #ea6a0a;
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+/* Bordered transparent button. */
+.btn--outline {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+.btn--outline:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+/* Small variant used inside cards. */
+.btn--sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+  background: var(--accent);
+  color: var(--bg-dark);
+}
+.btn--sm:hover {
+  background: #ea6a0a;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+/* --- Section Labels (eyebrow text above headings) --- */
+.section-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Section Titles --- */
+.section-title {
+  font-family: var(--font-display);
+  /* clamp() creates fluid typography:
+     minimum 1.8rem → scales with viewport → maximum 2.8rem.
+     This eliminates the need for separate media query overrides. */
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--text-light);
+  margin-bottom: var(--space-md);
+}
+
+/* --- Centred Section Wrapper --- */
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+
+/* 4. NAVIGATION */
+/* Mobile-first: hamburger visible, links hidden by default. */
+/* At 768px+ the hamburger hides and links appear inline. */
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  background: rgba(255, 245, 199, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari prefix */
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  isolation: isolate; /* Creates a new stacking context for the nav, ensuring dropdowns appear above other content. */
+}
+
+/* Brand name in the nav. */
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* Hamburger button — shown on mobile, hidden on desktop. */
+/* Three <span> children form the three icon bars. */
+.hamburger {
+  display: flex;          
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  /* Animate each bar for the open/close morph effect. */
+  transition: transform var(--transition), opacity var(--transition);
+  transform-origin: center;
+}
+
+/* When the nav is open, the JS adds .nav-open to #navbar. */
+/* These rules morph the three bars into an X shape. */
+#navbar.nav-open .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+#navbar.nav-open .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+#navbar.nav-open .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Nav links — hidden on mobile, dropdown when open. */
+.nav-links {
+  /* Hidden off-screen by default on mobile. */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  background: rgba(253, 253, 253, 0.92);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-sm) 0;
+  /* Slide-down animation handled by max-height transition. */
+  max-height: 0;
+  overflow: hidden;
+  padding: 0; /* Remove padding when closed to prevent extra space. */
+  border-bottom: none; /* Remove border when closed to prevent visual glitch. */
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  z-index: 1001;
+
+}
+
+/* When the hamburger is clicked, JS adds .nav-open to #navbar. */
+#navbar.nav-open .nav-links {
+  max-height: 400px; /* Large enough to reveal all links. */
+  padding: var(--space-sm) 0;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.75rem var(--space-md);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color var(--transition), padding-left var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  padding-left: calc(var(--space-md) + 6px); 
+}
+
+/* Highlighting the "View Deals" button. */
+.nav-cta {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+
+/* 5. HERO SECTION */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Top padding clears the fixed nav; bottom padding for breathing room. */
+  padding: calc(var(--nav-height) + var(--space-lg)) var(--space-sm) var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative ambient orbs — positioned absolutely behind content. */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-orb--1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(249,115,22,0.10), transparent 70%);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orb-drift 8s ease-in-out infinite alternate;
+}
+.hero-orb--2 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(56,189,248,0.12), transparent 70%);
+  bottom: 15%;
+  right: 10%;
+  animation: orb-drift 11s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orb-drift {
+  from { transform: translateX(-50%) translateY(0); }
+  to   { transform: translateX(-50%) translateY(30px); }
+}
+
+/* Eyebrow label above the main heading. */
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.9s ease both;
+}
+
+/* Main heading uses fluid sizing via clamp(). */
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 5rem);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  color: var(--text-light);
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.9s ease 0.15s both;
+}
+
+/* Gold accent word in the heading. */
+.hero-heading span {
+  color: var(--accent);
+  text-shadow: 0 0 32px var(--accent-glow);
+}
+
+.hero-sub {
+  max-width: 540px;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-dim);
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.9s ease 0.3s both;
+}
+
+/* Button row — stacked on mobile, side-by-side on desktop. */
+.hero-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.9s ease 0.45s both;
+}
+
+/* Offer message panel. */
+#offer-msg {
+  display: none; /* JS toggles this to 'block'. */
+  margin-top: var(--space-md);
+  padding: 1.1rem 1.8rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 520px;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.5s ease both;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Shared keyframe used by hero elements. */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+
+/* 6. DESTINATIONS SECTION */
+#destinations {
+  padding: var(--space-xl) var(--space-sm);
+  text-align: center;
+}
+
+/* CSS Grid layout for destination cards.
+/* Grid-template-columns uses auto-fit + minmax so the browser automatically calculates 
+how many columns fit. On a 320px phone: 1 column. */
+/* On a 700px tablet: 2 columns. On 1000px+ desktop: 3 columns. */
+/* No media queries needed for this specific layout change. */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Individual destination card. */
+.dest-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.4);
+}
+
+/* Image wrapper allows the badge to be positioned absolutely. */
+.dest-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+/* Fixed aspect ratio so all cards have uniform image height. */
+  aspect-ratio: 4 / 3;
+}
+
+.dest-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dest-card:hover .dest-card__img-wrap img {
+  transform: scale(1.06);
+}
+
+/* Small badge pinned to the top-right of the card image. */
+.dest-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--accent);
+  color: var(--bg-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+}
+
+/* Blue-tinted badge for "New" items. */
+.dest-card__badge--new {
+  background: #4ea8de;
+  color: #fff;
+}
+
+/* Card text body. */
+.dest-card__body {
+  padding: 1.4rem;
+}
+
+.dest-card__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+
+.dest-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+/* Price and button sit side by side within the card footer. */
+.dest-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.dest-card__price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.dest-card__price em {
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+
+/* 7. WHY US / FEATURES SECTION */
+#why-us {
+  padding: var(--space-xl) var(--space-sm);
+  text-align: center;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Same auto-fit grid pattern as .cards-grid. */
+/* Switches from 1 column (mobile) to 3 columns (desktop) automatically. */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.feature {
+  padding: var(--space-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.feature:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.feature__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-light);
+  margin-bottom: 0.6rem;
+}
+
+.feature__desc {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+
+/* 8. VIDEO SECTION */
+#video {
+  padding: var(--space-xl) var(--space-sm);
+  text-align: center;
+}
+/* This ensures the video is never distorted or overflows on small screens. */
+.video-wrap {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 9. ABOUT SECTION */
+#about {
+  padding: var(--space-xl) var(--space-sm);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: clamp(2rem, 5vw, 3.5rem); /* Fluid padding. */
+  max-width: 660px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+}
+
+.about-card p {
+  color: var(--text-dim);
+  line-height: 1.85;
+  font-size: 0.97rem;
+}
+
+
+/* 10. FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-lg) var(--space-sm) var(--space-md);
+}
+
+/* Three-column layout on desktop, stacked on mobile. */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-md);
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.footer-tagline {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer-heading {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.footer-links li + li {
+  margin-top: 0.4rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+footer p {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgb(168, 152, 128);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(232,160,69,0.06);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+
+/* MEDIA QUERIES */
+/* Mobile-first approach: base styles above target small screens. */
+/* The queries below progressively enhance for larger viewports. */
+
+/* TABLET — 600px and wider */
+@media (min-width: 600px) {
+
+  /* Hero buttons sit side by side. */
+  .hero-btns {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* Footer columns: 2-column grid. */
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+}
+
+
+/* DESKTOP — 768px and wider */
+@media (min-width: 768px) {
+
+  /* --- Navigation ---
+     Hide the hamburger and show inline links on desktop. */
+  .hamburger {
+    display: none;
+  }
+
+  .nav-links {
+    /* Override the mobile dropdown styles. */
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.8rem;
+    max-height: none; /* Remove the mobile slide-down constraint. */
+    overflow: visible;
+    background: none;
+    border: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .nav-links a {
+    padding: 0;
+    font-size: 0.8rem;
+    display: inline;
+  }
+
+  /* Remove indent hover effect on desktop. */
+  .nav-links a:hover {
+    padding-left: 0;
+    color: var(--accent);
+  }
+
+  /* Footer: 3-column layout. */
+  .footer-inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* LARGE DESKTOP — 1024px and wider */
+@media (min-width: 1024px) {
+
+  /* Increase section padding on large screens for a more spacious feel. */
+  #destinations,
+  #why-us,
+  #video,
+  #about {
+    padding: calc(var(--space-xl) * 1.25) var(--space-md);
+  }
+}
