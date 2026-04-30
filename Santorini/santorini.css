@@ -1,0 +1,519 @@
+/* 1. HERO IMAGE & OVERLAY */
+.pkg-hero {
+  position: relative;
+  height: 90vh;
+  min-height: 480px;
+  max-height: 780px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* The hero image fills the container and is cropped with object-fit. */
+.pkg-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  pointer-events: none;
+  /*
+    Subtle CSS parallax: the image is slightly taller than its container,
+    and background-attachment: fixed achieves the parallax on desktop.
+    We use object-position to ensure the most interesting part of the image
+    stays visible at all sizes.
+  */
+}
+
+/* Gradient overlay ensures text is legible regardless of image brightness. */
+.pkg-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12, 45, 63, 0.88) 0%,
+    rgba(12, 45, 63, 0.30) 50%,
+    rgba(12, 45, 63, 0.08) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero text content sits above the overlay. */
+.pkg-hero__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-lg) var(--space-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  animation: fade-in-up 0.9s ease both;
+}
+
+.pkg-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+  color: var(--text-light);
+  color: #9accf2;
+  margin: 0.3rem 0 0.5rem;
+  text-shadow: 0 0 32px #d7e8f55c, 0 0 48px #d7e8f55c, 0 0 64px #d7e8f55c;
+
+}
+
+.pkg-hero__sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  color: #91c8f3;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.4rem;
+}
+
+.pkg-section-label {
+    font-family: 'Raleway', 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+
+/* Quick stat pills below the subtitle. */
+.pkg-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.stat-pill {
+  background: rgba(232, 160, 69, 0.12);
+  border: 1px solid rgba(245, 170, 78, 0.412);
+  color: var(--text-dim);
+  color: #ffb077;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 2rem;
+  letter-spacing: 0.04em;
+}
+
+
+/* 2. TWO-COLUMN PAGE LAYOUT */
+/* Mobile: single column stack. */
+/* Desktop (900px+): content on the left, sticky booking card on the right. */
+.pkg-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .pkg-layout {
+    /* 2fr for content, 1fr for the booking sidebar. */
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+
+/* 3. MAIN CONTENT COLUMN SECTIONS */
+.pkg-section {
+  margin-bottom: var(--space-lg);
+}
+
+.pkg-section:last-child {
+  margin-bottom: 0;
+}
+
+.pkg-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pkg-main p {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.85;
+}
+
+
+/* 4. GALLERY */
+/* Auto-fill grid: scales from 1 column on mobile to 3 on desktop. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery__img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/*
+  The first image spans two rows to create visual variety in the grid.
+  grid-row: span 2 only has a visible effect when there are enough
+  columns for the grid to actually lay out in rows (tablet+).
+*/
+.gallery__img--tall {
+  height: auto;
+  grid-row: span 2;
+}
+
+
+/* 5. ITINERARY TIMELINE */
+/* A numbered vertical timeline using CSS positioning. */
+.itinerary {
+  list-style: none;
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Vertical line running down the left side of the timeline. */
+.itinerary::before {
+  content: '';
+  position: absolute;
+  left: 0.9rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.itinerary__day {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.itinerary__day:last-child {
+  margin-bottom: 0;
+}
+
+/* Numbered circle marker on the timeline. */
+.itinerary__marker {
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #ffffff;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+  /* Pulls the marker to sit on the vertical line. */
+  margin-left: -2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.itinerary__content h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+  padding-top: 0.35rem; /* Align with the marker circle. */
+}
+
+.itinerary__content p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+
+/* 6. INCLUSIONS TABLE */
+/* Two-column grid: included on the left, not included on the right. */
+/* Stacks on mobile. */
+.inclusions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 600px) {
+  .inclusions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inclusions__col {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.4rem;
+  backdrop-filter: blur(6px);
+}
+
+.inclusions__heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.inclusions__heading--yes { color: #16a34a; }
+.inclusions__heading--no  { color: #dc2626; }
+
+.inclusions__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.inclusions__list li {
+  font-size: 0.87rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+/* Bullet dot. */
+.inclusions__list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-dim);
+}
+
+
+/* 7. BOOKING CARD (SIDEBAR) */
+.pkg-sidebar {
+  /* Order moves the sidebar below the main content on mobile. */
+  order: 2;
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .pkg-sidebar {
+    order: unset;
+    position: sticky;
+    top: calc(var(--nav-height) + 1.5rem);
+  }
+}
+
+.booking-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.8rem;
+  backdrop-filter: blur(8px);
+  /*
+    position: sticky keeps the booking card in view as the user scrolls
+    down the left content column. top offsets it below the fixed nav.
+  */
+  position: sticky;
+  top: calc(var(--nav-height) + 1.5rem);
+}
+
+.booking-card__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.booking-card__price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+.booking-card__price span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.booking-card__note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.booking-card__divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.2rem 0;
+}
+
+/* Form field (label + input/select). */
+.booking-card__field {
+  margin-bottom: 1rem;
+}
+
+.booking-card__field label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+
+/* Select and date input share the same style. */
+.booking-card__field select,
+.booking-card__field input[type="date"] {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.booking-card__field select:focus,
+.booking-card__field input[type="date"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Option elements inside the select inherit the dark background. */
+.booking-card__field select option {
+  background: #ffffff;
+  color: var(--text-light);
+}
+
+/* Estimated total row. */
+.booking-card__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+/* The dynamically updated total figure. */
+#total-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.booking-card__cta {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+/* Confirmation message — hidden until handleBooking() is called. */
+.booking-card__confirm {
+  display: none;
+  font-size: 0.85rem;
+  color: #16a34a;
+  text-align: center;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+.booking-card__secure {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+
+/* 8. RELATED PACKAGES STRIP */
+.related {
+  padding: var(--space-xl) var(--space-sm);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.related__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Three-card grid, collapses on mobile. */
+.related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  text-align: left;
+}
+
+.related-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+}
+
+.related-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.related-card:hover img {
+  transform: scale(1.05);
+}
+
+.related-card__body {
+  padding: 1.1rem;
+}
+
+.related-card__body h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 0.3rem;
+}
+
+.related-card__body p {
+  font-size: 0.85rem;
+  color: var(--accent);
+}

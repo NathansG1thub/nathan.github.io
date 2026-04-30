@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Viewport meta tag ensures correct scaling on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Holidae</title>
+
+  <!-- Google Fonts: same as index.html for visual consistency. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="../Home_Page/styles.css" />
+
+  <!-- Page-specific styles scoped to Deals.html. -->
+  <link rel="stylesheet" href="deals.css" />
+  <!-- Favicon: the small icon shown in the browser tab. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../Home_Page/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Home_Page/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Home_Page/assets/favicon-16x16.png">
+  <link rel="manifest" href="../Home_Page/assets/site.webmanifest">
+</head>
+
+<body>
+
+  <!-- NAVIGATION — identical structure to index.html for consistency. -->
+  <nav id="navbar">
+    <a href="../Home_Page/index.html" class="nav-brand"> Holidae</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../Home_Page/index.html"           class="nav-link">Home</a></li>
+      <li><a href="../Home_Page/index.html#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="../Home_Page/index.html#why-us"    class="nav-link">Why Us</a></li>
+      <li><a href="../Home_Page/index.html#about"     class="nav-link">About</a></li>
+      <!-- Active page is highlighted via the .nav-active class. -->
+      <li><a href="deals.html"        class="nav-link nav-cta nav-active">View Deals</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- PAGE HERO -->
+  <!-- Compact banner — shorter than the landing page hero. -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <p class="section-label">Explore the World</p>
+      <h1 class="page-hero__title">Our Holiday Deals</h1>
+      <p class="page-hero__sub">
+        Hand-picked destinations, curated itineraries, and unbeatable value.
+        Find the escape that is right for you.
+      </p>
+    </div>
+  </header>
+
+
+  <!-- FILTER BAR -->
+  <!-- JavaScript-powered category filter. Buttons toggle the visible cards by matching data-region attributes on each Deal card. -->
+  <section class="filter-bar" aria-label="Filter Deals by region">
+    <div class="filter-bar__inner">
+      <!-- data-filter="all" shows every card. Other values match data-region. -->
+      <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="europe">Europe</button>
+      <button class="filter-btn" data-filter="asia">Asia</button>
+      <button class="filter-btn" data-filter="oceania">Oceania</button>
+      <button class="filter-btn" data-filter="maldives">Islands</button>
+    </div>
+  </section>
+
+
+  <!-- DealS GRID -->
+  <!-- Each <article> is a Deal card. The data-region attribute is read by the filter JS to show/hide cards by category. -->
+  <main id="deals-grid">
+    <div class="dea-grid" id="dea-grid">
+
+      <!-- Deal 1: Santorini -->
+      <article class="dea-card" data-region="europe">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80"
+            alt="White-washed buildings and blue domes in Santorini, Greece"
+            loading="lazy"
+          />
+          <span class="dea-card__badge">Popular</span>
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Europe</span>
+            <span class="dea-card__duration">7 nights</span>
+          </div>
+          <h2 class="dea-card__name">Santorini, Greece</h2>
+          <p class="dea-card__desc">
+            Cliffside villages, volcanic beaches, and legendary Aegean sunsets.
+            Includes guided caldera tour and wine tasting.
+          </p>
+          <!-- Highlights list for quick scanning. -->
+          <ul class="dea-card__highlights">
+            <li>✦ Caldera-view accommodation</li>
+            <li>✦ Daily breakfast included</li>
+            <li>✦ Airport transfers</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <span class="dea-card__price">$1,299</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <!-- Links to the dedicated Santorini detail page. -->
+            <a href="../Santorini/santorini.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Deal 2: Maldives -->
+      <article class="dea-card" data-region="maldives">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80"
+            alt="Overwater bungalows on turquoise water in the Maldives"
+            loading="lazy"
+          />
+          <span class="dea-card__badge dea-card__badge--new">New</span>
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Islands</span>
+            <span class="dea-card__duration">10 nights</span>
+          </div>
+          <h2 class="dea-card__name">Maldives</h2>
+          <p class="dea-card__desc">
+            Private overwater villas, coral reefs teeming with marine life,
+            and uninterrupted ocean views from your own deck.
+          </p>
+          <ul class="dea-card__highlights">
+            <li>✦ Overwater villa</li>
+            <li>✦ Snorkelling & diving</li>
+            <li>✦ All-inclusive meals</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <span class="dea-card__price">$2,199</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <a href="../Santorini/santorini.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Deal 3: Kyoto -->
+      <article class="dea-card" data-region="asia">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80"
+            alt="Lantern-lit path through a bamboo forest in Kyoto, Japan"
+            loading="lazy"
+          />
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Asia</span>
+            <span class="dea-card__duration">8 nights</span>
+          </div>
+          <h2 class="dea-card__name">Kyoto, Japan</h2>
+          <p class="dea-card__desc">
+            Ancient temples, cherry blossom trails, and timeless Zen gardens.
+            Experience Japan beyond the tourist trail.
+          </p>
+          <ul class="dea-card__highlights">
+            <li>✦ Traditional ryokan stay</li>
+            <li>✦ Tea ceremony experience</li>
+            <li>✦ JR rail pass included</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <span class="dea-card__price">$1,799</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <a href="../Kyoto/kyoto.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Deal 4: Amalfi Coast -->
+      <article class="dea-card" data-region="europe">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=800&q=80"
+            alt="Colourful buildings cascading down cliffs to the sea on the Amalfi Coast, Italy"
+            loading="lazy"
+          />
+          <span class="dea-card__badge dea-card__badge--sale">Sale</span>
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Europe</span>
+            <span class="dea-card__duration">6 nights</span>
+          </div>
+          <h2 class="dea-card__name">Amalfi Coast, Italy</h2>
+          <p class="dea-card__desc">
+            Terraced vineyards, lemon groves, and pastel-coloured villages
+            perched above the glittering Tyrrhenian Sea.
+          </p>
+          <ul class="dea-card__highlights">
+            <li>✦ Clifftop hotel</li>
+            <li>✦ Boat tour of the coast</li>
+            <li>✦ Local food & wine tour</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <!-- Strike-through shows original price before the sale. -->
+              <span class="dea-card__price--old">$1,450</span>
+              <span class="dea-card__price">$1,149</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <a href="../Santorini/santorini.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Deal 5: Bali -->
+      <article class="dea-card" data-region="asia">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80"
+            alt="Terraced rice paddies and a traditional temple in Bali, Indonesia"
+            loading="lazy"
+          />
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Asia</span>
+            <span class="dea-card__duration">9 nights</span>
+          </div>
+          <h2 class="dea-card__name">Bali, Indonesia</h2>
+          <p class="dea-card__desc">
+            Lush rice terraces, sacred temples, surf beaches, and world-class
+            spa retreats all on one island.
+          </p>
+          <ul class="dea-card__highlights">
+            <li>✦ Private villa with pool</li>
+            <li>✦ Temple & culture tour</li>
+            <li>✦ Surf lesson included</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <span class="dea-card__price">$1,499</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <a href="../Santorini/santorini.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Deal 6: New Zealand -->
+      <article class="dea-card" data-region="oceania">
+        <div class="dea-card__img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&q=80"
+            alt="Dramatic fjord surrounded by mountains in Milford Sound, New Zealand"
+            loading="lazy"
+          />
+        </div>
+        <div class="dea-card__body">
+          <div class="dea-card__meta">
+            <span class="dea-card__region">Oceania</span>
+            <span class="dea-card__duration">12 nights</span>
+          </div>
+          <h2 class="dea-card__name">New Zealand</h2>
+          <p class="dea-card__desc">
+            Fjords, geothermal wonders, Māori culture, and some of the most
+            dramatic landscapes on Earth.
+          </p>
+          <ul class="dea-card__highlights">
+            <li>✦ Milford Sound cruise</li>
+            <li>✦ Rotorua geothermal tour</li>
+            <li>✦ Campervan hire option</li>
+          </ul>
+          <div class="dea-card__footer">
+            <div>
+              <span class="dea-card__price">$2,649</span>
+              <span class="dea-card__per">/ person</span>
+            </div>
+            <a href="../Santorini/santorini.html" class="btn btn--primary btn--sm">View Deal</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.dea-grid -->
+
+    <!-- Shown by JS when no cards match the active filter. -->
+    <p class="no-results" id="no-results" aria-live="polite">
+      No Deals found for this region. Try a different filter.
+    </p>
+
+  </main><!-- /#Deals-grid -->
+
+
+  <!-- FOOTER — same structure as index.html. -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-brand"> Holidae</p>
+        <p class="footer-tagline">Your world. Your way.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer navigation">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="../Home_Page/index.html">Home</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="../Home_Page/index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>holidae@holidae.com</p>
+        <p>+971 12 345 6789</p>
+      </div>
+    </div>
+    <p class="footer-copy">
+      &copy; 2026  Holidae &mdash; All Rights Reserved
+    </p>
+  </footer>
+
+
+  <!-- Shared JS for hamburger nav. -->
+  <script src="../Home_Page/script.js"></script>
+  <!-- Page-specific JS for the filter functionality. -->
+  <script src="deals.js"></script>
+
+</body>
+</html>

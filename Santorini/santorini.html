@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holidae</title>
+ 
+  <!-- Google Fonts: consistent with the rest of the site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" />
+ 
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="../Home_Page/styles.css" />
+ 
+  <!-- Page-specific styles. -->
+  <link rel="stylesheet" href="santorini.css" />
+  <!-- Favicon: the small icon shown in the browser tab. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../Home_Page/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Home_Page/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Home_Page/assets/favicon-16x16.png">
+  <link rel="manifest" href="../Home_Page/assets/site.webmanifest">
+</head>
+ 
+<body>
+<!-- Navigation bar: consistent across all pages. -->
+<nav id="navbar">
+    <a href="../Home_Page/index.html" class="nav-brand"> Holidae</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../Home_Page/index.html"           class="nav-link">Home</a></li>
+      <li><a href="../Home_Page/index.html#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="../Home_Page/index.html#why-us"    class="nav-link">Why Us</a></li>
+      <li><a href="../Home_Page/index.html#about"     class="nav-link">About</a></li>
+      <!-- Active page is highlighted via the .nav-active class. -->
+      <li><a href="../Deals/deals.html"        class="nav-link nav-cta nav-active">View Deals</a></li>
+    </ul>
+</nav>
+
+<!-- HERO IMAGE -->
+<!-- A large banner image fills the top of the page. -->
+<!-- The overlay gradient keeps the text legible on any image. -->
+  <header class="pkg-hero">
+    <div class="pkg-hero__overlay"></div>
+    <img
+      class="pkg-hero__img"
+      src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1600&q=85"
+      alt="Iconic blue-domed churches and white buildings overlooking the Aegean Sea in Santorini, Greece"
+    />
+    <div class="pkg-hero__content">
+      <p class="pkg-section-label">Europe · Greece</p>
+      <h1 class="pkg-hero__title">Santorini</h1>
+      <p class="pkg-hero__sub">7 nights · From $1,299 per person</p>
+ 
+      <!-- Quick stat pills sit horizontally below the subtitle. -->
+      <div class="pkg-hero__stats">
+        <span class="stat-pill">Flights included</span>
+        <span class="stat-pill">Daily breakfast</span>
+        <span class="stat-pill">Airport transfers</span>
+        <span class="stat-pill">Guided tour</span>
+      </div>
+    </div>
+  </header>
+ 
+ 
+  <!-- MAIN CONTENT WRAPPER -->
+  <!-- Two-column layout on desktop: content left, booking card right. -->
+  <!-- Stacks to single column on mobile. -->
+  <div class="pkg-layout">
+ 
+    <!-- LEFT / MAIN COLUMN -->
+    <main class="pkg-main">
+ 
+      <!-- Overview paragraph. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">About This Package</h2>
+        <p>
+          Perched on the rim of an ancient volcanic caldera, Santorini is one of
+          the world's most iconic destinations. This 7-night package places you
+          in the heart of Oia, where cave-cut suites and infinity pools overlook
+          one of the most photographed sunsets on the planet. Every detail is
+          taken care of — from your airport transfer on arrival to a private
+          guided tour of the island's archaeological highlights.
+        </p>
+        <p style="margin-top:1rem;">
+          Whether you spend your days exploring the black-sand beaches of Perissa,
+          sailing the caldera on a catamaran, or simply watching the world drift
+          past from a clifftop terrace with a glass of local Assyrtiko wine —
+          Santorini delivers a holiday you will return from changed.
+        </p>
+      </section>
+ 
+ 
+      <!-- Embedded video — rich media requirement. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Experience Santorini</h2>
+        <!--
+          Responsive iframe: padding-top 56.25% maintains a 16:9 aspect ratio
+          at any container width, preventing distortion on mobile.
+        -->
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/2zjpU97z3YY"
+            title="Santorini, Greece travel video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+ 
+ 
+      <!-- Photo gallery — a responsive CSS Grid of images. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Gallery</h2>
+        <!--
+          CSS Grid gallery: auto-fill with minmax so the number of columns
+          scales fluidly from 1 (mobile) to 3 (desktop) without media queries.
+        -->
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=600&q=80"
+            alt="Narrow cobblestone lane lined with white buildings and bougainvillea in Oia"
+            loading="lazy"
+            class="gallery__img gallery__img--tall"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=600&q=80"
+            alt="Turquoise infinity pool overlooking the Santorini caldera at sunset"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80"
+            alt="Traditional Greek meze spread with fresh seafood and local wine"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=600&q=80"
+            alt="Black sand beach at Perissa with volcanic cliffs in the background"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=600&q=80"
+            alt="Catamaran sailing on calm blue water with Santorini's cliffs visible"
+            loading="lazy"
+            class="gallery__img"
+          />
+        </div>
+      </section>
+ 
+ 
+      <!-- Day-by-day itinerary. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Your Itinerary</h2>
+ 
+        <ol class="itinerary">
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">1</div>
+            <div class="itinerary__content">
+              <h3>Arrival & Welcome</h3>
+              <p>
+                Your private transfer whisks you from Santorini Airport to your
+                clifftop hotel in Oia. Settle in, freshen up, and spend your first
+                evening exploring the winding lanes and watching the legendary sunset.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">2</div>
+            <div class="itinerary__content">
+              <h3>Caldera & Akrotiri Archaeological Site</h3>
+              <p>
+                Morning guided tour of the Minoan ruins at Akrotiri — the
+                "Pompeii of the Aegean". Afternoon free for a dip at Red Beach,
+                one of the island's most dramatic volcanic shorelines.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">3</div>
+            <div class="itinerary__content">
+              <h3>Catamaran Sailing Day</h3>
+              <p>
+                A full-day catamaran cruise around the caldera, stopping at the
+                hot springs of Palea Kameni, the white village of Thirassia, and
+                a prime swimming spot. Lunch and drinks served on board.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">4</div>
+            <div class="itinerary__content">
+              <h3>Fira & Wine Tasting</h3>
+              <p>
+                Stroll the cobblestone paths of Fira, the island's capital. In the
+                afternoon, visit a local winery for a guided Assyrtiko tasting
+                overlooking the vineyards.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">5</div>
+            <div class="itinerary__content">
+              <h3>Perissa Black Sand Beach</h3>
+              <p>
+                A relaxed beach day at Perissa. Sunbeds and umbrellas are included,
+                and the beachfront tavernas serve fresh grilled octopus and cold
+                Mythos beer in abundance.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">6</div>
+            <div class="itinerary__content">
+              <h3>Free Day</h3>
+              <p>
+                Your day, your way. Hire a quad bike and explore the island
+                independently, book a spa treatment at the hotel, or return to
+                a favourite spot from earlier in the week.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">7</div>
+            <div class="itinerary__content">
+              <h3>Departure</h3>
+              <p>
+                Enjoy a final breakfast with caldera views before your private
+                transfer back to the airport. Safe travels.
+              </p>
+            </div>
+          </li>
+ 
+        </ol>
+      </section>
+ 
+ 
+      <!-- What's included / excluded table. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">What's Included</h2>
+ 
+        <div class="inclusions">
+ 
+          <!-- Included items. -->
+          <div class="inclusions__col">
+            <h3 class="inclusions__heading inclusions__heading--yes">Included ✓</h3>
+            <ul class="inclusions__list">
+              <li>Return flights from London Heathrow</li>
+              <li>7 nights in a caldera-view hotel</li>
+              <li>Daily breakfast</li>
+              <li>Private airport transfers (both ways)</li>
+              <li>Akrotiri archaeological site guided tour</li>
+              <li>Full-day catamaran cruise with lunch</li>
+              <li>Winery visit and wine tasting session</li>
+              <li>24/7 Horizon Holidays support line</li>
+            </ul>
+          </div>
+ 
+          <!-- Excluded items — important for transparency. -->
+          <div class="inclusions__col">
+            <h3 class="inclusions__heading inclusions__heading--no">Not Included ✗</h3>
+            <ul class="inclusions__list">
+              <li>Travel insurance (strongly recommended)</li>
+              <li>Lunches and evening meals</li>
+              <li>Personal spending money</li>
+              <li>Optional activities (quad hire, spa, etc.)</li>
+              <li>Checked baggage fees (airline dependent)</li>
+            </ul>
+          </div>
+ 
+        </div>
+      </section>
+ 
+    </main><!-- /.pkg-main -->
+ 
+ 
+    <!-- RIGHT / SIDEBAR — BOOKING CARD -->
+    <!-- Sticks to the viewport on desktop as the user scrolls. -->
+    <aside class="pkg-sidebar">
+      <div class="booking-card" id="booking-card">
+ 
+        <p class="booking-card__label">Book This Package</p>
+        <p class="booking-card__price">
+          $1,299 <span>/ person</span>
+        </p>
+        <p class="booking-card__note">
+          Based on 2 adults sharing. Price includes flights & hotel.
+        </p>
+ 
+        <!-- Divider line. -->
+        <hr class="booking-card__divider" />
+ 
+        <!-- Traveller count selector — JS updates the total price dynamically. -->
+        <div class="booking-card__field">
+          <label for="travellers">Travellers</label>
+          <select id="travellers" onchange="updateTotal()">
+            <option value="1">1 person</option>
+            <option value="2" selected>2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+            <option value="9">9 people</option>
+            <option value="10">10 people</option>
+          </select>
+        </div>
+ 
+        <!-- Departure date picker. -->
+        <div class="booking-card__field">
+          <label for="depart-date">Departure Date</label>
+          <input type="date" id="depart-date" />
+        </div>
+ 
+        <!-- Dynamically updated total price. -->
+        <div class="booking-card__total">
+          <span>Estimated Total</span>
+          <!-- JS writes into this element on page load and on change. -->
+          <span id="total-price">$2,598</span>
+        </div>
+ 
+        <button class="btn btn--primary booking-card__cta" onclick="handleBooking()">
+          Book Now
+        </button>
+ 
+        <!-- Confirmation message shown after booking button is clicked. -->
+        <p class="booking-card__confirm" id="booking-confirm" aria-live="polite">
+          Enquiry submitted! A travel specialist will contact you within 24 hours.
+        </p>
+ 
+        <p class="booking-card__secure">Secure booking · Free cancellation within 48 hrs</p>
+ 
+      </div><!-- /.booking-card -->
+    </aside>
+ 
+  </div><!-- /.pkg-layout -->
+ 
+ 
+  <!-- RELATED PACKAGES STRIP -->
+  <!-- Encourages users to browse further. -->
+  <section class="related">
+    <div class="related__inner">
+      <p class="section-label">You Might Also Like</p>
+      <h2 class="section-title">More Packages</h2>
+ 
+      <div class="related__grid">
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80"
+            alt="Overwater bungalows in the Maldives"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Maldives</h3>
+            <p>From $2,199 / person</p>
+            <a href="../Deals/deals.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80"
+            alt="Bamboo forest path in Kyoto, Japan"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Kyoto, Japan</h3>
+            <p>From $1,799 / person</p>
+            <a href="../Kyoto/kyoto.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=600&q=80"
+            alt="Amalfi Coast colourful cliff-side buildings"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Amalfi Coast</h3>
+            <p>From $1,149 / person</p>
+            <a href="../Deals/deals.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+      </div>
+    </div>
+  </section>
+ 
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-brand">Holidae</p>
+        <p class="footer-tagline">Your world. Your way.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer navigation">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="../Home_Page/index.html">Home</a></li>
+          <li><a href="../Deals/deals.html">Packages</a></li>
+          <li><a href="../Home_Page/index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>holidae@holidae.com</p>
+        <p>+971 12 345 6789</p>
+      </div>
+    </div>
+    <p class="footer-copy">
+      &copy; 2026 Holidae &mdash; All Rights Reserved
+    </p>
+  </footer>
+ 
+ 
+  <script src="santorini.js"></script>
+ 
+</body>
+</html>

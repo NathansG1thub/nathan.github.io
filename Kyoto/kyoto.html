@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holidae</title>
+
+  <!-- Google Fonts: consistent with the rest of the site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="../Home_Page/styles.css" />
+
+  <!-- Page-specific styles. -->
+  <link rel="stylesheet" href="kyoto.css" />
+
+  <!-- Favicon: the small icon shown in the browser tab. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../Home_Page/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../Home_Page/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Home_Page/assets/favicon-16x16.png">
+  <link rel="manifest" href="../Home_Page/assets/site.webmanifest">
+</head>
+
+<body>
+
+  <!-- Navigation bar: consistent across all pages. -->
+  <nav id="navbar">
+    <a href="../Home_Page/index.html" class="nav-brand">Holidae</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../Home_Page/index.html"              class="nav-link">Home</a></li>
+      <li><a href="../Home_Page/index.html#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="../Home_Page/index.html#why-us"       class="nav-link">Why Us</a></li>
+      <li><a href="../Home_Page/index.html#about"        class="nav-link">About</a></li>
+      <!-- Active page highlighted via the .nav-active class. -->
+      <li><a href="../Deals/deals.html" class="nav-link nav-cta nav-active">View Deals</a></li>
+    </ul>
+  </nav>
+
+<!-- HERO IMAGE -->
+  <header class="pkg-hero">
+    <div class="pkg-hero__overlay"></div>
+    <img
+      class="pkg-hero__img"
+      src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&q=85"
+      alt="Lantern-lit path through a bamboo forest in Kyoto, Japan at dusk"
+    />
+    <div class="pkg-hero__content">
+      <p class="pkg-section-label">Asia · Japan</p>
+      <h1 class="pkg-hero__title">Kyoto</h1>
+      <p class="pkg-hero__sub">8 nights · From $1,799 per person</p>
+ 
+      <div class="pkg-hero__stats">
+        <span class="stat-pill">Flights included</span>
+        <span class="stat-pill">Traditional ryokan stay</span>
+        <span class="stat-pill">JR rail pass</span>
+        <span class="stat-pill">Tea ceremony</span>
+      </div>
+    </div>
+  </header>
+ 
+ 
+  <!-- MAIN CONTENT WRAPPER -->
+  <div class="pkg-layout">
+ 
+    <!-- LEFT / MAIN COLUMN -->
+    <main class="pkg-main">
+ 
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">About This Package</h2>
+        <p>
+          Once the imperial capital of Japan for over a thousand years, Kyoto is
+          a city that seems to exist slightly outside of time. Ancient wooden
+          temples rise from forested hillsides, stone lanterns line moss-covered
+          paths, and geiko still move quietly through the narrow lanes of Gion
+          at dusk. This 8-night package immerses you in all of it.
+        </p>
+        <p style="margin-top:1rem;">
+          You will stay two nights in a traditional ryokan — sleeping on futons,
+          bathing in a private onsen, and eating kaiseki dinners prepared fresh
+          each evening. The remaining nights are in a contemporary Kyoto hotel,
+          giving you the perfect balance of authenticity and comfort as you
+          explore everything this extraordinary city has to offer.
+        </p>
+      </section>
+ 
+ 
+      <!-- Embedded video — rich media requirement. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Experience Kyoto</h2>
+        <!--
+          Responsive iframe: padding-top 56.25% maintains a 16:9 aspect ratio
+          at any container width, preventing distortion on mobile.
+        -->
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/xVVVQjaD-pg"
+            title="Kyoto Japan travel video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+ 
+ 
+      <!-- Photo gallery. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Gallery</h2>
+        <!--
+          CSS Grid gallery: auto-fill with minmax so the number of columns
+          scales fluidly from 1 (mobile) to 3 (desktop) without media queries.
+        -->
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80"
+            alt="Thousands of vermillion torii gates lining the path at Fushimi Inari shrine"
+            loading="lazy"
+            class="gallery__img gallery__img--tall"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&q=80"
+            alt="Cherry blossom trees in full bloom lining a canal in Kyoto"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80"
+            alt="Golden Temple Kinkaku-ji reflected in a still pond surrounded by trees"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&q=80"
+            alt="Traditional matcha green tea ceremony set on a wooden table"
+            loading="lazy"
+            class="gallery__img"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&q=80"
+            alt="View of Kyoto city rooftops and mountains at sunset from a hillside temple"
+            loading="lazy"
+            class="gallery__img"
+          />
+        </div>
+      </section>
+ 
+ 
+      <!-- Day-by-day itinerary. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">Your Itinerary</h2>
+ 
+        <ol class="itinerary">
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">1</div>
+            <div class="itinerary__content">
+              <h3>Arrival & Gion Evening Walk</h3>
+              <p>
+                Arrive at Osaka Kansai International Airport and take the
+                express train to Kyoto. Check in to your contemporary hotel
+                and spend your first evening wandering the stone-paved lanes
+                of Gion, Kyoto's historic geisha district.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">2</div>
+            <div class="itinerary__content">
+              <h3>Fushimi Inari & Nishiki Market</h3>
+              <p>
+                An early morning hike through the thousands of vermillion torii
+                gates at Fushimi Inari Shrine before the crowds arrive. Afternoon
+                spent grazing through Nishiki Market — Kyoto's famous covered
+                food market stretching five blocks.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">3</div>
+            <div class="itinerary__content">
+              <h3>Arashiyama Bamboo Grove</h3>
+              <p>
+                Head west to Arashiyama. Walk through the iconic bamboo grove,
+                visit the riverside Tenryu-ji Zen garden, and take the optional
+                hike up to the monkey park for panoramic views over the city.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">4</div>
+            <div class="itinerary__content">
+              <h3>Ryokan Check-In & Tea Ceremony</h3>
+              <p>
+                Move to your traditional ryokan in the Higashiyama district.
+                Afternoon guided tea ceremony with a local tea master. Evening
+                multi-course kaiseki dinner served in your room.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">5</div>
+            <div class="itinerary__content">
+              <h3>Philosopher's Path & Temples</h3>
+              <p>
+                Walk the famous Philosopher's Path canal route, stopping at
+                Nanzen-ji, Eikan-do, and Ginkaku-ji (the Silver Pavilion).
+                A second evening at the ryokan with private onsen access.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">6</div>
+            <div class="itinerary__content">
+              <h3>Day Trip to Nara</h3>
+              <p>
+                A 45-minute JR train ride to Nara, where over a thousand
+                wild deer roam freely through the park surrounding Todai-ji —
+                home to Japan's largest bronze Buddha statue.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">7</div>
+            <div class="itinerary__content">
+              <h3>Kinkaku-ji & Nijo Castle</h3>
+              <p>
+                Morning at the Golden Pavilion (Kinkaku-ji). Afternoon
+                exploring Nijo Castle, whose famous "nightingale floors"
+                squeak with every step to alert guards of intruders.
+              </p>
+            </div>
+          </li>
+ 
+          <li class="itinerary__day">
+            <div class="itinerary__marker" aria-hidden="true">8</div>
+            <div class="itinerary__content">
+              <h3>Free Morning & Departure</h3>
+              <p>
+                A final free morning to revisit a favourite spot or pick up
+                last-minute gifts at the Teramachi covered arcade. Transfer
+                to the airport for your departure flight.
+              </p>
+            </div>
+          </li>
+ 
+        </ol>
+      </section>
+ 
+ 
+      <!-- What's included / excluded. -->
+      <section class="pkg-section">
+        <h2 class="pkg-section__title">What's Included</h2>
+ 
+        <div class="inclusions">
+ 
+          <div class="inclusions__col">
+            <h3 class="inclusions__heading inclusions__heading--yes">Included ✓</h3>
+            <ul class="inclusions__list">
+              <li>Return flights from London Heathrow</li>
+              <li>6 nights in a contemporary Kyoto hotel</li>
+              <li>2 nights in a traditional ryokan</li>
+              <li>Daily breakfast throughout</li>
+              <li>2 kaiseki dinners at the ryokan</li>
+              <li>7-day JR rail pass</li>
+              <li>Guided tea ceremony with a tea master</li>
+              <li>Airport express train tickets</li>
+              <li>24/7 Holidae support line</li>
+            </ul>
+          </div>
+ 
+          <div class="inclusions__col">
+            <h3 class="inclusions__heading inclusions__heading--no">Not Included ✗</h3>
+            <ul class="inclusions__list">
+              <li>Travel insurance (strongly recommended)</li>
+              <li>Lunches and evening meals (except ryokan)</li>
+              <li>Temple & shrine entrance fees</li>
+              <li>Personal spending money</li>
+              <li>Checked baggage fees (airline dependent)</li>
+            </ul>
+          </div>
+ 
+        </div>
+      </section>
+ 
+    </main><!-- /.pkg-main -->
+ 
+ 
+    <!-- RIGHT / SIDEBAR — BOOKING CARD -->
+    <aside class="pkg-sidebar">
+      <div class="booking-card" id="booking-card">
+ 
+        <p class="booking-card__label">Book This Package</p>
+        <p class="booking-card__price">
+          $1,799 <span>/ person</span>
+        </p>
+        <p class="booking-card__note">
+          Based on 2 adults sharing. Price includes flights & accommodation.
+        </p>
+ 
+        <hr class="booking-card__divider" />
+ 
+        <!-- Traveller count — JS updates the total price dynamically. -->
+        <div class="booking-card__field">
+          <label for="travellers">Travellers</label>
+          <select id="travellers" onchange="updateTotal()">
+            <option value="1">1 person</option>
+            <option value="2" selected>2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+            <option value="9">9 people</option>
+            <option value="10">10 people</option>
+          </select>
+        </div>
+ 
+        <div class="booking-card__field">
+          <label for="depart-date">Departure Date</label>
+          <input type="date" id="depart-date" />
+        </div>
+ 
+        <div class="booking-card__total">
+          <span>Estimated Total</span>
+          <!-- JS writes the total into this element on load and on change. -->
+          <span id="total-price">$3,598</span>
+        </div>
+ 
+        <button class="btn btn--primary booking-card__cta" onclick="handleBooking()">
+          Book Now
+        </button>
+ 
+        <p class="booking-card__confirm" id="booking-confirm" aria-live="polite">
+          Enquiry submitted! A travel specialist will contact you within 24 hours.
+        </p>
+ 
+        <p class="booking-card__secure">Secure booking · Free cancellation within 48 hrs</p>
+ 
+      </div><!-- /.booking-card -->
+    </aside>
+ 
+  </div><!-- /.pkg-layout -->
+ 
+ 
+  <!-- RELATED PACKAGES STRIP -->
+  <section class="related">
+    <div class="related__inner">
+      <p class="section-label">You Might Also Like</p>
+      <h2 class="section-title">More Packages</h2>
+ 
+      <div class="related__grid">
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80"
+            alt="White-washed buildings and blue domes in Santorini, Greece"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Santorini, Greece</h3>
+            <p>From $1,299 / person</p>
+            <a href="../Santorini/santorini.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80"
+            alt="Overwater bungalows in the Maldives"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Maldives</h3>
+            <p>From $2,199 / person</p>
+            <a href="../Deals/deals.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+        <article class="related-card">
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80"
+            alt="Terraced rice paddies and a traditional temple in Bali, Indonesia"
+            loading="lazy"
+          />
+          <div class="related-card__body">
+            <h3>Bali, Indonesia</h3>
+            <p>From $1,499 / person</p>
+            <a href="../Deals/deals.html" class="btn btn--sm" style="margin-top:0.8rem;">View</a>
+          </div>
+        </article>
+ 
+      </div>
+    </div>
+  </section>
+ 
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <p class="footer-brand">Holidae</p>
+        <p class="footer-tagline">Your world. Your way.</p>
+      </div>
+      <nav class="footer-col" aria-label="Footer navigation">
+        <p class="footer-heading">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="../Home_Page/index.html">Home</a></li>
+          <li><a href="../Deals/deals.html">Packages</a></li>
+          <li><a href="../Home_Page/index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-heading">Contact</p>
+        <p>holidae@holidae.com</p>
+        <p>+971 12 345 6789</p>
+      </div>
+    </div>
+    <p class="footer-copy">
+      &copy; 2026 Holidae &mdash; All Rights Reserved
+    </p>
+  </footer>
+ 
+  <script src="kyoto.js"></script>
+ 
+</body>
+</html>
+</body>
+</html>
