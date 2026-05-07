@@ -15,7 +15,7 @@ function toggleNav() {
 hamburger.addEventListener('click', toggleNav);
 
 
-/* 2. AUTO-CLOSE NAV ON LINK CLICK */
+/* AUTO-CLOSE NAV ON LINK CLICK */
 /* When a user taps an anchor link in the mobile menu, 
 close the dropdown automatically rather than leaving it open over the content. */
 var allNavLinks = navLinks.querySelectorAll('a');

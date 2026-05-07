@@ -33,7 +33,7 @@ allNavLinks.forEach(function(link) {
 /* CONSTANTS */
 
 /* Base price per person in USD. */
-var PRICE_PER_PERSON = 1299;
+var PRICE_PER_PERSON = 1799;
 
 
 /* 1. SET MINIMUM DATE ON DATE PICKER  */
