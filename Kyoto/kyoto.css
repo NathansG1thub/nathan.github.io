@@ -1,5 +1,5 @@
 /* 1. HERO IMAGE & OVERLAY */
-.pkg-hero {
+.dea-hero {
   position: relative;
   height: 90vh;
   min-height: 480px;
@@ -9,7 +9,7 @@
   align-items: flex-end;
 }
 
-.pkg-hero__img {
+.dea-hero__img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -20,7 +20,7 @@
 }
 
 /* Deeper, forest-toned overlay to complement the bamboo/temple imagery. */
-.pkg-hero__overlay {
+.dea-hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-.pkg-hero__content {
+.dea-hero__content {
   position: relative;
   z-index: 2;
   padding: var(--space-lg) var(--space-md);
@@ -44,7 +44,7 @@
 }
 
 /* Cherry blossom pink for the destination title. */
-.pkg-hero__title {
+.dea-hero__title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 1.05;
@@ -54,7 +54,7 @@
                0 0 64px rgba(244, 184, 200, 0.20);
 }
 
-.pkg-hero__sub {
+.dea-hero__sub {
   font-size: 1.05rem;
   font-weight: 300;
   color: #f0d0d8;
@@ -62,7 +62,7 @@
   margin-bottom: 1.4rem;
 }
 
-.pkg-section-label {
+.dea-section-label {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--accent);
@@ -71,7 +71,7 @@
   margin-bottom: 0.4rem;
 }
 
-.pkg-hero__stats {
+.dea-hero__stats {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -91,7 +91,7 @@
 
 
 /* 2. TWO-COLUMN PAGE LAYOUT */
-.pkg-layout {
+.dea-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -102,7 +102,7 @@
 }
 
 @media (min-width: 900px) {
-  .pkg-layout {
+  .dea-layout {
     grid-template-columns: 2fr 1fr;
     gap: var(--space-lg);
   }
@@ -110,15 +110,15 @@
 
 
 /* 3. MAIN CONTENT COLUMN SECTIONS */
-.pkg-section {
+.dea-section {
   margin-bottom: var(--space-lg);
 }
 
-.pkg-section:last-child {
+.dea-section:last-child {
   margin-bottom: 0;
 }
 
-.pkg-section__title {
+.dea-section__title {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   color: var(--text-light);
@@ -127,7 +127,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-.pkg-main p {
+.dea-main p {
   font-size: 0.95rem;
   color: var(--text-dim);
   line-height: 1.85;
@@ -282,13 +282,13 @@
 
 
 /* 7. BOOKING CARD (SIDEBAR) */
-.pkg-sidebar {
+.dea-sidebar {
   order: 2;
   margin-top: var(--space-lg);
 }
 
 @media (min-width: 900px) {
-  .pkg-sidebar {
+  .dea-sidebar {
     order: unset;
     margin-top: 0;
     position: sticky;
