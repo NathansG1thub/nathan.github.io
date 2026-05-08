@@ -108,6 +108,12 @@
   color: var(--bg-dark);
 }
 
+/* Keep active button text visible and add a darkened hover effect. */
+.filter-btn--active:hover {
+  background: #ea6a0a;
+  border-color: #ea6a0a;
+  color: #ffffff;
+}
 
 /* DEALS GRID */
 /* Same auto-fit grid pattern as the landing page destinations grid. */
@@ -175,6 +181,7 @@
   border-radius: 2px;
 }
 
+/* Different badge colors for different types. */
 .dea-card__badge--new  { background: #0ea5e9; color: #fff; }
 .dea-card__badge--sale { background: #ef4444; color: #fff; }
 
