@@ -11,21 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet" />
  
   <!-- Shared stylesheet. -->
-  <link rel="stylesheet" href="../Home_Page/styles.css" />
+  <link rel="stylesheet" href="../styles.css" />
  
   <!-- Page-specific styles. -->
   <link rel="stylesheet" href="santorini.css" />
   <!-- Favicon: the small icon shown in the browser tab. -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../Home_Page/assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../Home_Page/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../Home_Page/assets/favicon-16x16.png">
-  <link rel="manifest" href="../Home_Page/assets/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+  <link rel="manifest" href="../assets/site.webmanifest">
 </head>
  
 <body>
 <!-- Navigation bar: consistent across all pages. -->
 <nav id="navbar">
-    <a href="../Home_Page/index.html" class="nav-brand"> Holidae</a>
+    <a href="../index.html" class="nav-brand"> Holidae</a>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
@@ -34,10 +34,10 @@
     </button>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="../Home_Page/index.html"           class="nav-link">Home</a></li>
-      <li><a href="../Home_Page/index.html#destinations" class="nav-link">Destinations</a></li>
-      <li><a href="../Home_Page/index.html#why-us"    class="nav-link">Why Us</a></li>
-      <li><a href="../Home_Page/index.html#about"     class="nav-link">About</a></li>
+      <li><a href="../index.html"           class="nav-link">Home</a></li>
+      <li><a href="../index.html#destinations" class="nav-link">Destinations</a></li>
+      <li><a href="../index.html#why-us"    class="nav-link">Why Us</a></li>
+      <li><a href="../index.html#about"     class="nav-link">About</a></li>
       <!-- Active page is highlighted via the .nav-active class. -->
       <li><a href="../Deals/deals.html"        class="nav-link nav-cta nav-active">View Deals</a></li>
     </ul>
@@ -46,20 +46,20 @@
 <!-- HERO IMAGE -->
 <!-- A large banner image fills the top of the page. -->
 <!-- The overlay gradient keeps the text legible on any image. -->
-  <header class="pkg-hero">
-    <div class="pkg-hero__overlay"></div>
+  <header class="dea-hero">
+    <div class="dea-hero__overlay"></div>
     <img
-      class="pkg-hero__img"
+      class="dea-hero__img"
       src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1600&q=85"
       alt="Iconic blue-domed churches and white buildings overlooking the Aegean Sea in Santorini, Greece"
     />
-    <div class="pkg-hero__content">
-      <p class="pkg-section-label">Europe · Greece</p>
-      <h1 class="pkg-hero__title">Santorini</h1>
-      <p class="pkg-hero__sub">7 nights · From $1,299 per person</p>
+    <div class="dea-hero__content">
+      <p class="dea-section-label">Europe · Greece</p>
+      <h1 class="dea-hero__title">Santorini</h1>
+      <p class="dea-hero__sub">7 nights · From $1,299 per person</p>
  
       <!-- Quick stat pills sit horizontally below the subtitle. -->
-      <div class="pkg-hero__stats">
+      <div class="dea-hero__stats">
         <span class="stat-pill">Flights included</span>
         <span class="stat-pill">Daily breakfast</span>
         <span class="stat-pill">Airport transfers</span>
@@ -72,14 +72,14 @@
   <!-- MAIN CONTENT WRAPPER -->
   <!-- Two-column layout on desktop: content left, booking card right. -->
   <!-- Stacks to single column on mobile. -->
-  <div class="pkg-layout">
+  <div class="dea-layout">
  
     <!-- LEFT / MAIN COLUMN -->
-    <main class="pkg-main">
+    <main class="dea-main">
  
       <!-- Overview paragraph. -->
-      <section class="pkg-section">
-        <h2 class="pkg-section__title">About This Package</h2>
+      <section class="dea-section">
+        <h2 class="dea-section__title">About This Package</h2>
         <p>
           Perched on the rim of an ancient volcanic caldera, Santorini is one of
           the world's most iconic destinations. This 7-night package places you
@@ -98,8 +98,8 @@
  
  
       <!-- Embedded video — rich media requirement. -->
-      <section class="pkg-section">
-        <h2 class="pkg-section__title">Experience Santorini</h2>
+      <section class="dea-section">
+        <h2 class="dea-section__title">Experience Santorini</h2>
         <!--
           Responsive iframe: padding-top 56.25% maintains a 16:9 aspect ratio
           at any container width, preventing distortion on mobile.
@@ -116,8 +116,8 @@
  
  
       <!-- Photo gallery — a responsive CSS Grid of images. -->
-      <section class="pkg-section">
-        <h2 class="pkg-section__title">Gallery</h2>
+      <section class="dea-section">
+        <h2 class="dea-section__title">Gallery</h2>
         <!--
           CSS Grid gallery: auto-fill with minmax so the number of columns
           scales fluidly from 1 (mobile) to 3 (desktop) without media queries.
@@ -158,8 +158,8 @@
  
  
       <!-- Day-by-day itinerary. -->
-      <section class="pkg-section">
-        <h2 class="pkg-section__title">Your Itinerary</h2>
+      <section class="dea-section">
+        <h2 class="dea-section__title">Your Itinerary</h2>
  
         <ol class="itinerary">
  
@@ -251,8 +251,8 @@
  
  
       <!-- What's included / excluded table. -->
-      <section class="pkg-section">
-        <h2 class="pkg-section__title">What's Included</h2>
+      <section class="dea-section">
+        <h2 class="dea-section__title">What's Included</h2>
  
         <div class="inclusions">
  
@@ -286,12 +286,12 @@
         </div>
       </section>
  
-    </main><!-- /.pkg-main -->
+    </main><!-- /.dea-main -->
  
  
     <!-- RIGHT / SIDEBAR — BOOKING CARD -->
     <!-- Sticks to the viewport on desktop as the user scrolls. -->
-    <aside class="pkg-sidebar">
+    <aside class="dea-sidebar">
       <div class="booking-card" id="booking-card">
  
         <p class="booking-card__label">Book This Package</p>
@@ -349,7 +349,7 @@
       </div><!-- /.booking-card -->
     </aside>
  
-  </div><!-- /.pkg-layout -->
+  </div><!-- /.dea-layout -->
  
  
   <!-- RELATED PACKAGES STRIP -->
@@ -415,9 +415,9 @@
       <nav class="footer-col" aria-label="Footer navigation">
         <p class="footer-heading">Quick Links</p>
         <ul class="footer-links">
-          <li><a href="../Home_Page/index.html">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="../Deals/deals.html">Packages</a></li>
-          <li><a href="../Home_Page/index.html#about">About</a></li>
+          <li><a href="../index.html#about">About</a></li>
         </ul>
       </nav>
       <div class="footer-col">

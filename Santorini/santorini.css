@@ -1,5 +1,5 @@
 /* 1. HERO IMAGE & OVERLAY */
-.pkg-hero {
+.dea-hero {
   position: relative;
   height: 90vh;
   min-height: 480px;
@@ -10,7 +10,7 @@
 }
 
 /* The hero image fills the container and is cropped with object-fit. */
-.pkg-hero__img {
+.dea-hero__img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -27,7 +27,7 @@
 }
 
 /* Gradient overlay ensures text is legible regardless of image brightness. */
-.pkg-hero__overlay {
+.dea-hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -41,7 +41,7 @@
 }
 
 /* Hero text content sits above the overlay. */
-.pkg-hero__content {
+.dea-hero__content {
   position: relative;
   z-index: 2;
   padding: var(--space-lg) var(--space-md);
@@ -51,7 +51,7 @@
   animation: fade-in-up 0.9s ease both;
 }
 
-.pkg-hero__title {
+.dea-hero__title {
   font-family: var(--font-display);
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 1.05;
@@ -62,7 +62,7 @@
 
 }
 
-.pkg-hero__sub {
+.dea-hero__sub {
   font-size: 1.05rem;
   font-weight: 300;
   color: var(--text-dim);
@@ -71,7 +71,7 @@
   margin-bottom: 1.4rem;
 }
 
-.pkg-section-label {
+.dea-section-label {
     font-family: 'Raleway', 'Trebuchet MS', sans-serif;
     font-size: 0.9rem;
     color: var(--accent);
@@ -82,7 +82,7 @@
 
 
 /* Quick stat pills below the subtitle. */
-.pkg-hero__stats {
+.dea-hero__stats {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -104,7 +104,7 @@
 /* 2. TWO-COLUMN PAGE LAYOUT */
 /* Mobile: single column stack. */
 /* Desktop (900px+): content on the left, sticky booking card on the right. */
-.pkg-layout {
+.dea-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
@@ -115,7 +115,7 @@
 }
 
 @media (min-width: 900px) {
-  .pkg-layout {
+  .dea-layout {
     /* 2fr for content, 1fr for the booking sidebar. */
     grid-template-columns: 2fr 1fr;
     gap: var(--space-lg);
@@ -124,15 +124,15 @@
 
 
 /* 3. MAIN CONTENT COLUMN SECTIONS */
-.pkg-section {
+.dea-section {
   margin-bottom: var(--space-lg);
 }
 
-.pkg-section:last-child {
+.dea-section:last-child {
   margin-bottom: 0;
 }
 
-.pkg-section__title {
+.dea-section__title {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   color: var(--text-light);
@@ -141,7 +141,7 @@
   border-bottom: 1px solid var(--border);
 }
 
-.pkg-main p {
+.dea-main p {
   font-size: 0.95rem;
   color: var(--text-dim);
   line-height: 1.85;
@@ -307,14 +307,14 @@
 
 
 /* 7. BOOKING CARD (SIDEBAR) */
-.pkg-sidebar {
+.dea-sidebar {
   /* Order moves the sidebar below the main content on mobile. */
   order: 2;
   margin-top: var(--space-lg);
 }
 
 @media (min-width: 900px) {
-  .pkg-sidebar {
+  .dea-sidebar {
     order: unset;
     position: sticky;
     top: calc(var(--nav-height) + 1.5rem);
