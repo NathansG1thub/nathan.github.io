@@ -1,6 +1,6 @@
 /* CACHE DOM REFERENCES */
 var filterBtns  = document.querySelectorAll('.filter-btn');
-var pkgCards    = document.querySelectorAll('.pkg-card');
+var deaCards    = document.querySelectorAll('.dea-card');
 var noResults   = document.getElementById('no-results');
 
 
@@ -11,7 +11,7 @@ function filterPackages(filter) {
   var visibleCount = 0;
 
   /* Loop through every package card and show or hide it. */
-  pkgCards.forEach(function(card) {
+  deaCards.forEach(function(card) {
     var region = card.getAttribute('data-region');
 
     /* Show the card if "all" is selected, or if its region matches. */
